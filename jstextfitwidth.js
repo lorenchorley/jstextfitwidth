@@ -69,7 +69,7 @@
 			testarea.children().each(function () {
 				
 				// Set initial size and find the desired size recursively
-				$(this).css('font-size', 10); // TODO Make an initial guess using the information from one change. Using that ratio, try to guess the final width, then 
+				$(this).css('font-size', 10);
 				
 				// Get the width of the text
 				var width = $(this).outerWidth();
