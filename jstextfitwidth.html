@@ -27,7 +27,12 @@
 		world</div>
         <script src="jstextfitwidth.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		jQuery("#textrect").textfitwidth();
+		jQuery("#textrect").textfitwidth({
+			CSSProperties : [
+				"text-transform",
+				"font-family",
+			]
+		});
 	</script>
     </body>
 </html>
