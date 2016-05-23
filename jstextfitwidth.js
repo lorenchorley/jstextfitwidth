@@ -13,7 +13,7 @@
 		display: "inline-block",
 		"white-space" : "nowrap",
 	};
-
+	
 	var recursiveSetFontWidth = function (targetWidth, textElement, currentFontSize, changedLastTime, increment, depth, acceptableError) {
 		
 		if (depth == 100)
@@ -40,6 +40,7 @@
 		var settings = $.extend({
 			delimiter : "\n",
 			acceptableError : 0.1,
+			CSSProperties : [],
 		}, options );
 
 		this.each(function() {
@@ -60,6 +61,13 @@
 
 			// Apply the hidden line css to each new div within the test area
 			testarea.children().css(hiddenLineCSS);
+			
+			// Transfer extra css property values
+			var extraCSSProperties = {};
+			settings.CSSProperties.forEach(function (property) {
+				extraCSSProperties[property] = textBlock.css(property);
+			});
+			testarea.children().css(extraCSSProperties);
 
 			// Recursively find the appropriate width of each line, then transfer them back to the original container
 			testarea.children().each(function () {
